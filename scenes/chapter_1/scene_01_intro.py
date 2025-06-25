@@ -1,5 +1,6 @@
 from player import player
-from main import narrate, speak
+from engine.scene_engine import get_choice, narrate, speak
+from scenes.chapter_1 import scene_02_follow_figure, scene_02_5_explore
 
 
 def main():
@@ -18,3 +19,15 @@ def main():
     speak("The Figure", f"... So you *are* still carrying that name. {player["name"]}. How curious.")
     narrate("They lower their gaze, as if they've seen you before - but not quite like this.")
     speak("The Figure", "Names cling harder than memories, I suppose.")
+    narrate("The figure turns away from you and glides into the fog.")
+    
+    options = [
+        "Follow the figure into the fog",
+        "Stay and look around the platform"
+    ]
+    choice = get_choice(options)
+
+    if choice == 0:
+        scene_02_follow_figure.main()
+    else:
+        scene_02_5_explore.main()
