@@ -1,9 +1,10 @@
 from player import player
-from scenes.chapter_1 import scene_01_intro, scene_02_follow_figure
+from engine.scene_loader import run_scene
 
 def main():
-    scene_01_intro.run_scene(player)
-    scene_02_follow_figure.run_scene(player)
+    run_scene("scenes.chapter_1.scene_01_intro", player)
+    run_scene("scenes.chapter_1.scene_02_follow_figure", player)
+    run_scene("scenes.chapter_1.scene_02_5_explore", player)
 
 if __name__=="__main__":
     main()
