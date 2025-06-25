@@ -3,15 +3,18 @@ from main import narrate, speak
 
 
 def main():
-    narrate("You wake as the train pulls to a heavy stop." \
-    "\nYou step off the train, mist rolling over a desolate platform." \
-    "\nYou step outside and all you can see is a figure holding a sign in the distance.")
+    narrate("The train screeches to a halt. You jolt awake, heart pounding.")
+    narrate("Your hand is wrapped tightly around something - a ticket, damp with sweat.")
 
-    player["name"] = input("It reads: What is your name? ")
+    player["name"] = input("Your eyes come into focus and you make out a name.\
+                           \nIt reads: ")
+    
+    narrate("You don't remember boarding, but the name feels... familiar, like a whisper in a dream.\
+            \n\nYou step off the train into thick, gray mist.")
+    narrate("The platform is empty - all but a single figure, still as stone, standing in the fog ahead.")
 
-    speak("The Figure", f"The mysterious figure looks you up and down. Ahhh yes, {player["name"]}, that sounds about right.")
-    narrate("They lower the sign and step back, eyes painting a blank picture")
-    speak("The Figure", "You returned for a reason. Though I wonder if it's the same one that sent you away...")
-    narrate("They turn away and walk into the fog")
+    input("\n[Press Enter to approach the figure...]")
 
-    input("\n[Press Enter to follow them into the fog...]")
+    speak("The Figure", f"... So you *are* still carrying that name. {player["name"]}. How curious.")
+    narrate("They lower their gaze, as if they've seen you before - but not quite like this.")
+    speak("The Figure", "Names cling harder than memories, I suppose.")
