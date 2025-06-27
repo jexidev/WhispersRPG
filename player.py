@@ -1,3 +1,5 @@
+from stat_feedback import increase_stat_feedback, decrease_stat_feedback
+
 player = {
     "name": "",
     "stats": {
@@ -19,6 +21,12 @@ def update_stat(player, stat_name, amount):
 
     if stat_name in stats:
         stats[stat_name] += amount
-    
-    if stats[stat_name] < 0:
-        stats[stat_name] = 0
+        if stats[stat_name] < 0:
+            stats[stat_name] = 0
+        
+        if amount > 0:
+            message = increase_stat_feedback.get(stat_name)
+        elif amount < 0:
+            message = decrease_stat_feedback.get(stat_name)
+             
+    return message
