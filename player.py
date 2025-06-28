@@ -11,8 +11,7 @@ player = {
         "corruption":0    
     },
     "flags": {
-        # Placeholder for adding flags later
-        # e.g. "refused_name_entry": False
+        "discarded_ticket": False,
     },
 }
 
