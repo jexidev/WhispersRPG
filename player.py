@@ -3,7 +3,7 @@ from stat_feedback import increase_stat_feedback, decrease_stat_feedback
 player = {
     "name": "",
     "stats": {
-        "identity_stability":0,
+        "identity_stability":2,
         "insight":0,
         "willpower":0,
         "empathy":0,
