@@ -8,7 +8,7 @@ def run_scene(player):
     narrate("Your hand is wrapped tightly around something - a ticket, damp with sweat.")
 
     # Discard the ticket or not
-    options = ["Throw the ticket away - the journey is over anyway"
+    options = ["Throw the ticket away - the journey is over anyway",
                "Examine the ticket"]
     
     choice = get_choice(options)
