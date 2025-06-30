@@ -1,9 +1,6 @@
 from player import player
 from engine.scene_engine import get_choice, narrate, speak
 
-from player import player
-from engine.scene_engine import get_choice, narrate, speak
-
 # Entry point for this atmospheric scene: a pivotal descent following The Figure
 def run_scene(player):
     # Initial descent sequence—sets tone and physical/surreal shift
