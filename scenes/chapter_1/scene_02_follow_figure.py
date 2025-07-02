@@ -1,6 +1,6 @@
 from player import Player
 from engine.scene_engine import get_choice, narrate, speak
-from scenes.chapter_1 import scene_03_device, scene_02_follow_figure
+from scenes.chapter_1 import scene_03_2_shout_figure, scene_03_device, scene_03_1_corridor, scene_04_exit_station
 
 def run_scene(player):
     narrate("You step into the mist, following the silhouette. Each footstep echoes less than the last, until their shape evaporates.")
@@ -24,10 +24,12 @@ def run_scene(player):
         choice = get_choice(options)
 
         if choice == 0:
+            player.update_stat("curiosity", 2)
             scene_03_device.run_scene(player)
 
         else:
-            scene_02_follow_figure.run_scene(player)
+            player.update_stat("curiosity", 1)
+            scene_03_1_corridor.run_scene(player)
 
     else:
         speak("Whispers", f"'{player.name}... a name remembered. But is it *yours*?'")
@@ -44,11 +46,11 @@ def run_scene(player):
         choice = get_choice(options)
         
         if choice == 0:
-            narrate("Your voice cuts through the silence, but no answer comes.")
-            # TODO: Seed callback opportunity in later scene?
+            scene_03_2_shout_figure.run_scene(player)
+
         else:
-            narrate("You step forward, letting the unknown pull you deeper.")
-            # TODO: Continue player journey into next major beat
+            scene_04_exit_station.run_scene(player)
+
 
 
 
