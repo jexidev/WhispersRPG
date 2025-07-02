@@ -22,6 +22,7 @@ def run_scene(player):
         player.name = input("Your eyes come into focus and you make out a name.\nIt reads: ")
         player.flags['discarded_ticket'] = False
         player.update_stat("insight", 1)
+        player.update_stat("identity_stability", 1)
 
     narrate("You don't remember boarding, but the name feels... familiar, like a whisper in a dream.\nYou step off the train into thick, gray mist.")
     narrate("The platform is empty - all but a single figure, still as stone, standing in the fog ahead.")
