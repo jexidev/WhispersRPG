@@ -1,4 +1,6 @@
+from player import Player
 from engine.scene_engine import get_choice, narrate, speak
+from scenes.chapter_1 import scene_03_device, scene_02_follow_figure
 
 def run_scene(player):
     narrate("You step into the mist, following the silhouette. Each footstep echoes less than the last, until their shape evaporates.")
@@ -22,32 +24,10 @@ def run_scene(player):
         choice = get_choice(options)
 
         if choice == 0:
-            narrate("You move toward the device, your heart pounding with cautious hope.")
-            # TODO: Trigger device interaction or next narrative node
-            narrate("The screen comes alive, flickering words across the screen")
-            speak("Blinking Device", "What is your name?")
-
-            options = [
-                "Try and enter your name",
-                "Try random combinations",
-                "Walk away from the device" 
-
-            ]
-            
-            choice = get_choice(options)
-            # TODO: Flesh out choice by adding stats, flags, and moving the story on
-            if choice == 0:
-                speak("The Device", "Name not recognised, did you really think throwing it away was a good idea?")
-
-            elif choice == 1:
-                speak("The Device", "Failed to follow simple instructions... Powering Down")
-
-            else:
-                narrate("You walk away from the device, feeling a strange sense of relief running over you")
+            scene_03_device.run_scene(player)
 
         else:
-            narrate("You explore the corridor, shadows stretching unnervingly along the walls.")
-            # TODO: Lead to optional discovery or alternate path
+            scene_02_follow_figure.run_scene(player)
 
     else:
         speak("Whispers", f"'{player.name}... a name remembered. But is it *yours*?'")
