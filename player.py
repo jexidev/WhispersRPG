@@ -20,7 +20,9 @@ class Player:
             "stepped_into_mist": False
 
             }
-        self.inventory = []
+        self.inventory = {
+
+        }
         self.journal = []
 
     def update_stat(self, stat_name, amount):
@@ -38,3 +40,13 @@ class Player:
 
             if feedback:
                 narrate(feedback)
+
+    def add_inventory(self, item_name, details=None, force=False):
+        if item_name not in self.inventory or force:
+            self.inventory[item_name] = details
+            print(f"[inventory] Added: {item_name}")
+            return True  
+        print(f"[Inventory] {item_name} already exists")
+        return False
+
+                      
