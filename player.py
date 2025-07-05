@@ -13,7 +13,13 @@ class Player:
             "corruption":0 
             }
         self.flags = {
-            "discarded_ticket": False,}
+            "discarded_ticket": False,
+            "approached_blinking_device": False,
+            "explore_corridor_s2": False,
+            "called_figure": False,
+            "stepped_into_mist": False
+
+            }
         self.inventory = []
         self.journal = []
 

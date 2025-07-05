@@ -24,20 +24,24 @@ def run_scene(player):
         choice = get_choice(options)
 
         if choice == 0:
-            player.update_stat("curiosity", 2)
+            player.update_stat("curiosity", 1)
+            player.update_stat("insight", 1)
+            player.flags["approach_blinking_device"] = True
             scene_03_device.run_scene(player)
 
         else:
             player.update_stat("curiosity", 1)
+            player.flags["explore_corridor_s2"] = True
             scene_03_1_corridor.run_scene(player)
 
     else:
         speak("Whispers", f"'{player.name}... a name remembered. But is it *yours*?'")
-        speak("Whispers", f"'{player.name}... {player.name}...' Then silence.")
+        speak("Whispers", f"'{player.name}... {player.name}...'") 
+        narrate("Then silence.")
 
         narrate("You land softly, the ground solid beneath you.")
         narrate("Around you stretches a misty expanse, endless and silent.")
-        narrate("The figure’s voice echoes faintly: 'Not all who follow find their way, but some truths wait in the dark.'")
+        narrate("The figure's voice echoes faintly: 'Not all who follow find their way, but some truths wait in the dark.'")
         
         options = [
             "Call out to the figure",
@@ -46,9 +50,13 @@ def run_scene(player):
         choice = get_choice(options)
         
         if choice == 0:
+            player.update_stat("willpower", 1)
+            player.flags["called_figure"] = True
             scene_03_2_shout_figure.run_scene(player)
 
         else:
+            player.update_stat("corruption", 1)
+            player.flags["stepped_into_mist"] = True
             scene_04_exit_station.run_scene(player)
 
 
