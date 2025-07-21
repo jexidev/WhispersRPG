@@ -24,12 +24,14 @@ def run_scene(player):
         choice = get_choice(options)
 
         if choice == 0:
+            narrate("You approach the blinking device, it's glow pulsing in time with your heartbeat")
             player.update_stat("curiosity", 1)
             player.update_stat("insight", 1)
             player.flags["approach_blinking_device"] = True
             scene_03_device.run_scene(player)
 
         else:
+            narrate("You step into the dark corridor, shadows shifting with every step")
             player.update_stat("curiosity", 1)
             player.flags["explore_corridor_s2"] = True
             scene_03_1_corridor.run_scene(player)
@@ -50,11 +52,13 @@ def run_scene(player):
         choice = get_choice(options)
         
         if choice == 0:
+            narrate("You shout out to the figure hoping for some sort of response, but all you here is echoes of your own voice. Or is it? No, it can't be that.")
             player.update_stat("willpower", 1)
             player.flags["called_figure"] = True
             scene_03_2_shout_figure.run_scene(player)
 
         else:
+            narrate("Ignoring calls to restore whispers of your identity, you walk into the mist without a care in the world")
             player.update_stat("corruption", 1)
             player.flags["stepped_into_mist"] = True
             scene_04_exit_station.run_scene(player)
